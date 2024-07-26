@@ -2,12 +2,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: blah-template
+  name: abctest123
   annotations:
     github.com/project-slug: AcmeInc/blah-template
     jira/project-key: PROJ
     jira/component: component1
     sonarqube.org/project-key: AcmeInc_blah-template
+    shortcut.com/story-query: owner:brian@roadie.io
 spec:
   type: service
   lifecycle: unknown
