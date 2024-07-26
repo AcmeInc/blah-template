@@ -8,7 +8,7 @@ metadata:
     jira/project-key: PROJ
     jira/component: component1
     sonarqube.org/project-key: AcmeInc_blah-template
-    shortcut.com/story-query: title:hello
+    shortcut.com/story-query: title:roadie
 spec:
   type: service
   lifecycle: unknown
