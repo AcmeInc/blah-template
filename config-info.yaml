@@ -11,7 +11,7 @@ metadata:
     shortcut.com/story-query: owner:brian@roadie.io
     launchdarkly.com/project-key: default
     launchdarkly.com/environment-key: test
-    launchdarkly.com/context: "{ \"kind\": \"tenant\", \"key\": \"sam-local\", \"name\": \"brian-local\" }"
+    launchdarkly.com/context: "{ \"kind\": \"tenant\", \"key\": \"brian-local\", \"name\": \"brian-local\" }"
 spec:
   type: service
   lifecycle: unknown
