@@ -9,6 +9,9 @@ metadata:
     jira/component: component1
     sonarqube.org/project-key: AcmeInc_blah-template
     shortcut.com/story-query: owner:brian@roadie.io
+    launchdarkly.com/project-key: default
+    launchdarkly.com/environment-key: dev
+    launchdarkly.com/context: "{ \"kind\": \"tenant\", \"key\": \"sam-local\", \"name\": \"brian-local\" }"
 spec:
   type: service
   lifecycle: unknown
