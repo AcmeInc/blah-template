@@ -9,21 +9,6 @@ spec:
   owner: platform-team
   type: service
   parameters:
-    - dependencies:
-        configfiles:
-          oneOf:
-            - $yaml: configfiles/mutable-ec2.yaml
-            - $yaml: configfiles/mutable-eks.yaml
-            - $yaml: configfiles/mutable-scc-account.yaml
-      title: Select the component you want to edit
-      properties:
-        configfiles:
-          enum:
-            - mutable-ec2
-            - mutable-eks
-            - mutable-scc-account
-          type: string
-
     - title: Choose a location
       required:
         - repoUrl
