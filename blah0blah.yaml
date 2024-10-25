@@ -19,7 +19,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.developer.enterprise.io
+              - github.com
         filePath:
           title: Path to the target file
           type: string
