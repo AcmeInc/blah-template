@@ -1,0 +1,66 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  title: Edit resources
+  name: edit-resources
+  description: Edit current resources based on a pre-existing component
+  tags: ['recommended', 'infra', 'fcp','onboard']
+spec:
+  owner: platform-team
+  type: service
+  parameters:
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.developer.enterprise.io
+        filePath:
+          title: Path to the target file
+          type: string
+          description: The path to the file you want to work this content to in the scaffolder workspace
+  steps:
+    - id: fetch-repo
+      name: Fetch repo
+      action: fetch:plain
+      input:
+        url: ${{ parameters.repoUrl }}
+
+#    It works as expected ->
+#    - id: append-file
+#      name: Append To File Or Create New
+#      action: roadiehq:utils:fs:append
+#      input:
+#        path: ${{ parameters.filePath }}
+#        content: 'configFiles: ${{ parameters.configfiles }}'
+
+#    It does not work ->
+    - id: replace-content-file
+      name: Replace content to file
+      action: roadiehq:utils:fs:replace
+      input:
+        files:
+          - file: '${{ parameters.filePath }}'
+            find: 'configFiles: '
+            matchRegex: true
+            replaceWith: 'configFiles: hello'
+
+    - id: publish-pr
+      name: Publish PR
+      action: publish:github:pull-request
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        branchName: 'edit_file'
+        title: Add entity to ${{ parameters.path }}
+        description: PR created from Roadie Backstage scaffolder
+
+    - id: log-message
+      name: Log PR URL
+      action: debug:log
+      input:
+        message: 'PR url: ${{ steps["publish-pr"].output.remoteUrl }}'
