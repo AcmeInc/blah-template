@@ -1,0 +1,39 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: hello-world-template
+  title: Check React
+  description: 'Select additional libraries and check if react is <a href="http://google.com/" target="_blank">Hello, world!</a>'
+spec:
+  owner: user:default/punkle
+  type: service
+
+  parameters:
+    - type: object
+      properties:
+        additional_libraries:
+          type: array
+          items:
+            type: string
+  steps:
+    - id: fetch-template
+      name: fetch template
+      action: fetch:template
+      input:
+        url: https://github.com/AcmeInc/test123/tree/main/hello-world-template
+        targetPath: ./target
+        templateFileExtension: njk
+        values:
+          additional_libraries: ${{ parameters['additional_libraries'] }}
+
+    - id: read
+      name: fs:read
+      action: fs:read
+      input:
+        path: ./target/index.yaml
+        
+    - id: check-react
+      name: Check react
+      action: debug:log
+      input:
+        message: "Read file: ${{ steps['read'].output.content }}"
