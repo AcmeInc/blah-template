@@ -12,7 +12,7 @@ spec:
     - type: object
       properties:
         repoName:
-          type: string
+          type: array
           title: Repository Name
           description: The repository that is associated with the service.
           ui:field: SelectFieldFromApi
