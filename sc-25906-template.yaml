@@ -1,0 +1,31 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: sc-25906-template
+  title: sc-25906-template
+  description: sc-25906-template
+spec:
+  owner: user:default/punkle
+  type: service
+
+  parameters:
+    - type: object
+      properties:
+        repoName:
+          type: string
+          title: Repository Name
+          description: The repository that is associated with the service.
+          ui:field: SelectFieldFromApi
+          ui:options:
+            path: catalog/entities
+            params:
+              filter: "kind=repository"
+            valueSelector: "metadata.annotations['github.com/repo']"
+            labelSelector: "metadata.annotations['github.com/repo']"
+          ui:autofocus: true
+  steps: 
+    - id: print-repo-name
+      name: Print repo name
+      action: debug:log
+      input:
+        message: "Read file: ${{ parameters['repoName'] }}"
