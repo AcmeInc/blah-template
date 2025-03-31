@@ -20,8 +20,8 @@ spec:
             path: catalog/entities
             params:
               filter: "kind=component"
-            valueSelector: "metadata.annotations['backstage.io/source-location']"
-            labelSelector: "metadata.annotations['backstage.io/source-location']"
+            valueSelector: "spec.name"
+            labelSelector: "spec.name"
           ui:autofocus: true
   steps: 
     - id: print-repo-name
