@@ -19,9 +19,9 @@ spec:
           ui:options:
             path: catalog/entities
             params:
-              filter: "kind=repository"
-            valueSelector: "metadata.annotations['github.com/repo']"
-            labelSelector: "metadata.annotations['github.com/repo']"
+              filter: "kind=component"
+            valueSelector: "metadata.annotations['backstage.io/source-location']"
+            labelSelector: "metadata.annotations['backstage.io/source-location']"
           ui:autofocus: true
   steps: 
     - id: print-repo-name
