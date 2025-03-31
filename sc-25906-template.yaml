@@ -20,8 +20,8 @@ spec:
             path: catalog/entities
             params:
               filter: "kind=component"
-            valueSelector: "spec.name"
-            labelSelector: "spec.name"
+            valueSelector: "metadata.name"
+            labelSelector: "metadata.name"
           ui:autofocus: true
   steps: 
     - id: print-repo-name
