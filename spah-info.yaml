@@ -1,0 +1,18 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: abctest123
+  annotations:
+    github.com/project-slug: AcmeInc/blah-template
+    jira/project-key: PROJ
+    jira/component: component1
+    sonarqube.org/project-key: AcmeInc_blah-template
+    shortcut.com/story-query: owner:brian@roadie.io
+    launchdarkly.com/project-key: default
+    launchdarkly.com/environment-key: test
+    launchdarkly.com/context: "{ \"kind\": \"tenant\", \"key\": \"brian-local\", \"name\": \"brian-local\" }"
+spec:
+  type: service
+  lifecycle: unknown
+  owner: 'user:brian@roadie.io'
