@@ -2,8 +2,8 @@ apiVersion: backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: v1beta3-demo
-  title: Test Action template
+  name: test-selecting-entity
+  title: Test selecting entity
   description: scaffolder v1beta3 template demo
 spec:
   owner: backstage/techdocs-core
@@ -13,15 +13,20 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - name
+        - entity
       properties:
-        name:
-          title: Name
+        entity:
+          name: Compound List
           type: string
-          description: Name of new project
-          ui:autofocus: true
+          ui:field: SelectFieldFromApi
           ui:options:
-            rows: 5
+            title: Choose your choice
+            description: This is a compound list
+            path: catalog/entities/by-query
+            params:
+              - filter: 'kind=component'
+            arraySelector: items
+            valueSelector: "."
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
@@ -29,19 +34,4 @@ spec:
       name: Log Message
       action: debug:log
       input:
-        message: "Hello, about to create this new project asdf ${{ steps.getcomponents.output.code }}"
-    - id: create-file
-      name: Create file
-      action: shell:run
-      input:
-        command: "touch 1"
-    - id: copy-it
-      name: Copy a file
-      action: shell:run
-      input:
-        command: "cp 1 2"
-    - id: move-it
-      name: Move a file
-      action: shell:run
-      input:
-        command: "mv 2 3"
+        message: "Hello, about to create this new project asdf ${{ params['entity'].metadata.name }}"
