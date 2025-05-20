@@ -26,7 +26,6 @@ spec:
             params:
               - filter: 'kind=component'
             arraySelector: items
-            valueSelector: "."
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
