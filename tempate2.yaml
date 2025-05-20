@@ -17,7 +17,7 @@ spec:
       properties:
         entity:
           name: Compound List
-          type: string
+          type: object
           ui:field: SelectFieldFromApi
           ui:options:
             title: Choose your choice
