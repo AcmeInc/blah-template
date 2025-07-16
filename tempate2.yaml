@@ -21,7 +21,7 @@ spec:
             ui:options:
               title: MyCustomGroupsPicker
               description: Be more selective about groups
-              path: '/api/catalog/entities/by-query'
+              path: 'api/catalog/entities/by-query'
               params:
                 filter: 'kind=group'
                 fullTextFilterTerm: sam
