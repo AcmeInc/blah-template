@@ -37,4 +37,4 @@ spec:
       name: Log Message
       action: debug:log
       input:
-        message: "Hello, about to create this new project asdf ${{ params['group'].metadata.name }}"
+        message: "Hello, about to create this new project asdf ${{ parameters['group'].metadata.name }}"
