@@ -27,8 +27,9 @@ spec:
                 fullTextFilterTerm: sam
                 fullTextFilterFields: metadata.name
               placeholder: 'Select the group'
+              valueSelector: 'metadata.name'
               arraySelector: 'items'
-              labelTemplate: '{{ item.metadata.name }}:{{ item.value2 }}'
+              labelTemplate: '{{ item.metadata.name }}'
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
