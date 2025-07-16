@@ -15,17 +15,20 @@ spec:
       required:
         - entity
       properties:
-        entity:
-          name: Compound List
-          type: object
-          ui:field: SelectFieldFromApi
-          ui:options:
-            title: Choose your choice
-            description: This is a compound list
-            path: catalog/entities/by-query
-            params:
-              - filter: 'kind=component'
-            arraySelector: items
+        group:
+            type: string
+            ui:field: SelectFieldFromApi
+            ui:options:
+              title: MyCustomGroupsPicker
+              description: Be more selective about groups
+              path: '/api/catalog/entities/by-query'
+              params:
+                filter: 'kind=group'
+                fullTextFilterTerm: sam
+                fullTextFilterFields: metadata.name
+              placeholder: 'Select the group'
+              arraySelector: 'items'
+              labelTemplate: '{{ item.metadata.name }}:{{ item.value2 }}'
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
@@ -33,4 +36,4 @@ spec:
       name: Log Message
       action: debug:log
       input:
-        message: "Hello, about to create this new project asdf ${{ params['entity'].metadata.name }}"
+        message: "Hello, about to create this new project asdf ${{ params['group'].metadata.name }}"
