@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1beta2
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: v1beta2-demo-22
+  title: Hello World Brian
+  description: scaffolder v1beta2 template demo
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        group:
+            type: string
+            ui:field: SelectFieldFromApi
+            ui:options:
+              title: MyCustomGroupsPicker
+              description: Be more selective about groups
+              path: '/api/catalog/entities/by-query'
+              params:
+                filter: 'kind=group'
+                fullTextFilterTerm: sam
+                fullTextFilterFields: metadata.name
+              placeholder: 'Select the group'
+              arraySelector: 'items'
+              labelTemplate: '{{ item.metadata.name }}:{{ item.value2 }}'
+        name:
+          title: Name
+          type: string
+          description: Name of new project
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      input:
+        message: "Hello, {{ parameters.name }}"
