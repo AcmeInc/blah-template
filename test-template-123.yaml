@@ -1,10 +1,10 @@
-apiVersion: backstage.io/v1beta2
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
   name: v1beta2-demo-22
   title: Hello World Brian
-  description: scaffolder v1beta2 template demo
+  description: scaffolder scaffolder.backstage.io/v1beta3 template demo
 spec:
   owner: backstage/techdocs-core
   type: service
