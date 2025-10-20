@@ -16,18 +16,6 @@ spec:
       properties:
         group:
             type: string
-            ui:field: SelectFieldFromApi
-            ui:options:
-              title: MyCustomGroupsPicker
-              description: Be more selective about groups
-              path: '/api/catalog/entities/by-query'
-              params:
-                filter: 'kind=group'
-                fullTextFilterTerm: sam
-                fullTextFilterFields: metadata.name
-              placeholder: 'Select the group'
-              arraySelector: 'items'
-              labelTemplate: '{{ item.metadata.name }}:{{ item.value2 }}'
         name:
           title: Name
           type: string
