@@ -9,6 +9,12 @@ spec:
   type: service
   parameters: []
   steps:
+    - id: backstage_request_with_input
+      name: backstage request
+      action: http:backstage:request
+      input:
+        method: 'GET'
+        path: '/catalog/locations?hello=world'
     - id: log-hello-world
       name: Log Message
       action: debug:log
