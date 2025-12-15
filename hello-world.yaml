@@ -14,7 +14,7 @@ spec:
       action: http:backstage:request
       input:
         method: 'GET'
-        path: '/catalog/locations?hello=world'
+        path: '/catalog/locations'
     - id: log-hello-world
       name: Log Message
       action: debug:log
