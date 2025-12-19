@@ -21,6 +21,16 @@ spec:
       input:
         message: 'Hello World!'
   output:
+    links:
+      - title: GitHub Repository
+        icon: github
+        url: https://github.com
+      - title: Component
+        icon: catalog
+        url: https://github.com
+      - title: System PR
+        icon: github
+        url: https://github.com
     text:
       - title: Thingy happened
         content: |
