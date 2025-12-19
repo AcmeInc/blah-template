@@ -20,3 +20,17 @@ spec:
       action: debug:log
       input:
         message: 'Hello World!'
+  output:
+    text:
+      - title: Thingy happened
+        content: |
+          ## 🎉 Your thing did the thing
+
+          **Thingy:** `${{ steps['http:backstage:request'].output.status }}`  
+
+
+          ### What happened:
+          - ✅ Blh blah blah
+          blah
+          blah
+          Blah blah blah blah
