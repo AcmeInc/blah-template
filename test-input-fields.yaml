@@ -8,26 +8,26 @@ spec:
   owner: engineering
   type: service
   parameters:
-    entity:
-      type: string
-      ui:field: EntityPicker
-    ownedEntity:
-      type: string
-      ui:field: OwnedEntityPicker
-    namedEntity:
-      type: string
-      ui:field: EntityNamePicker
-    repoUrl:
-      type: string
-      ui:field: RepoUrlPicker
-      ui:options:
-        allowedHosts:
-          - github.com
-        allowedOwners:
-          - AcmeInc
-    owner:
-      type: string
-      ui:field: OwnerPicker
+    - entity:
+        type: string
+        ui:field: EntityPicker
+    - ownedEntity:
+        type: string
+        ui:field: OwnedEntityPicker
+    - namedEntity:
+        type: string
+        ui:field: EntityNamePicker
+    - repoUrl:
+        type: string
+        ui:field: RepoUrlPicker
+        ui:options:
+          allowedHosts:
+            - github.com
+          allowedOwners:
+            - AcmeInc
+    - owner:
+        type: string
+        ui:field: OwnerPicker
   steps:
     - id: log-hello-world
       name: Log Message
