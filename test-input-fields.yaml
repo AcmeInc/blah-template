@@ -1,0 +1,65 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: test-input-fields
+  title: Test input fields
+  description: Test input fields
+spec:
+  owner: engineering
+  type: service
+  parameters:
+    entity:
+      type: string
+      ui:field: EntityPicker
+    ownedEntity:
+      type: string
+      ui:field: OwnedEntityPicker
+    namedEntity:
+      type: string
+      ui:field: EntityNamePicker
+    repoUrl:
+      type: string
+      ui:field: RepoUrlPicker
+      ui:options:
+        allowedHosts:
+          - github.com
+        allowedOwners:
+          - AcmeInc
+    owner:
+      type: string
+      ui:field: OwnerPicker
+  steps:
+    - id: log-hello-world
+      name: Log Message
+      action: debug:log
+      input:
+        message: |
+          All Inputs:
+          - entity: ${{ parameters.entity }}
+          - ownedEntity: ${{ parameters.ownedEntity }}
+          - namedEntity: ${{ parameters.namedEntity }}
+          - repoUrl: ${{ parameters.repoUrl }}
+          - owner: ${{ parameters.owner }}
+  output:
+    links:
+      - title: GitHub Repository
+        icon: github
+        url: https://github.com
+      - title: Component
+        icon: catalog
+        url: https://github.com
+      - title: System PR
+        icon: github
+        url: https://github.com
+    text:
+      - title: All Inputs
+        content: |
+          ## All Inputs
+
+          | Field | Value |
+          |-------|-------|
+          | entity | `${{ parameters.entity }}` |
+          | ownedEntity | `${{ parameters.ownedEntity }}` |
+          | namedEntity | `${{ parameters.namedEntity }}` |
+          | repoUrl | `${{ parameters.repoUrl }}` |
+          | owner | `${{ parameters.owner }}` |
