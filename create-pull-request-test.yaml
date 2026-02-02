@@ -21,7 +21,7 @@ spec:
 
     - id: publish-pr-debug
       name: Create PR with debug logging
-      action: publish:github:pull-request:debug
+      action: publish:github:pull-request
       input:
         repoUrl: github.com?repo=test123&owner=AcmeInc
         branchName: debug-test-${{ '' | now | replace(":", "-") | replace(" ", "-") }}
