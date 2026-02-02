@@ -11,7 +11,7 @@ spec:
   steps:
     - id: create-test-file
       name: Create test file
-      action: fs:write
+      action: roadiehq:utils:fs:write
       input:
         path: test-debug-file.txt
         content: |
