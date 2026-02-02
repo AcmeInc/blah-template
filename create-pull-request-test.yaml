@@ -1,0 +1,40 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: debug-pr-test
+  title: Debug PR Action Test
+  description: Test template for publish:github:pull-request:debug action
+spec:
+  type: debug
+  owner: user:guest
+  parameters: []
+  steps:
+    - id: create-test-file
+      name: Create test file
+      action: fs:write
+      input:
+        path: test-debug-file.txt
+        content: |
+          This is a test file created by the debug PR template.
+          Timestamp: ${{ '' | now }}
+          User: ${{ user.ref }}
+
+    - id: publish-pr-debug
+      name: Create PR with debug logging
+      action: publish:github:pull-request:debug
+      input:
+        repoUrl: github.com?repo=test123&owner=AcmeInc
+        branchName: debug-test-${{ '' | now | replace(":", "-") | replace(" ", "-") }}
+        title: '[Debug Test] Scaffolder PR Action Test'
+        description: |
+          This PR was created by the debug scaffolder template to test the publish:github:pull-request:debug action.
+
+          Created by: ${{ user.ref }}
+          Template: debug-pr-test
+        targetBranchName: main
+        createWhenEmpty: true
+
+  output:
+    links:
+      - title: Pull Request
+        url: ${{ steps['publish-pr-debug'].output.remoteUrl }}
