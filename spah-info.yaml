@@ -1,6 +1,6 @@
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Componenta
+kind: Componentaa
 metadata:
   name: abctest123
   annotations:
