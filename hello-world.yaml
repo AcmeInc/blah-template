@@ -22,7 +22,7 @@ spec:
       action: publish:github:pull-request:debug
       input:
         repoUrl: github.com?owner=AcmeInc&repo=blah-template
-        branchName: scaffolder/hello-world-${{ now() | date('yyyyMMdd-HHmmss') }}
+        branchName: scaffolder/hello-world
         title: 'Hello World Template Update'
         description: |
           ## Automated Update
