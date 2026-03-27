@@ -11,7 +11,7 @@ spec:
   steps:
     - id: write-file
       name: Create Hello World File
-      action: roadie:utils:fs:write
+      action: roadiehq:utils:fs:write
       input:
         path: hello-world.txt
         content: |
